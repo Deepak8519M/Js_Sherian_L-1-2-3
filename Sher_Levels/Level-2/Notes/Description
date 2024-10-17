@@ -1,0 +1,190 @@
+<!-- The line of code:
+
+```javascript
+document.querySelector(".overlay").style.display = "flex";
+```
+
+does the following:
+
+1. **`document.querySelector(".overlay")`:**
+   - This part selects the **first element** in the DOM with the class name `overlay`.
+   - The `querySelector` method is used to target elements by their CSS selectors. In this case, `.overlay` is the class selector.
+   - If no element with the class `.overlay` is found, it returns `null`.
+
+2. **`.style`:**
+   - The `.style` property allows you to directly access and manipulate the **inline CSS** styles of the selected element.
+
+3. **`.display = "flex"`:**
+   - This changes the `display` property of the selected element to `"flex"`, which is a CSS property value.
+   - `display: flex` makes the selected element a **flex container**, which allows its child elements to be aligned and distributed according to the flexbox layout model.
+
+### Explanation in Context:
+- If the element with the class `overlay` was previously hidden (perhaps it had `display: none`), this line of code makes the element visible by setting its `display` property to `flex`.
+- The `flex` value applies the **flexbox layout** to the element, which can be useful for centering or arranging child elements inside it.
+
+### Example Scenario:
+Imagine a modal or a pop-up overlay that was hidden initially. By running this line of code, the overlay would become visible, and its internal content could be aligned using flexbox.
+
+Example:
+```html
+<div class="overlay" style="display: none;">
+  <!- This is the overlay that was hidden before ->
+</div>
+```
+
+After running the script:
+
+```javascript
+document.querySelector(".overlay").style.display = "flex";
+```
+
+This would set the overlay’s display property to `flex`, making it visible and applying flexbox layout.
+
+-->
+
+<!-- --------------------------------------------------------------------------------------------------------- -->
+
+<!-- This line of code adds an event listener to an element with the `id` of `searchinput` and hides an element with the class `overlay` when the search input field loses focus (i.e., the user clicks or tabs away from the input).
+
+Let's break it down:
+
+### Code Breakdown:
+```javascript
+document.querySelector("#searchinput").addEventListener("blur", () => {
+  document.querySelector(".overlay").style.display = "none";
+});
+```
+
+1. **`document.querySelector("#searchinput")`:**
+   - This selects the element with the `id="searchinput"`. The `#searchinput` is a CSS selector used to target an element by its `id`.
+
+2. **`.addEventListener("blur", ...)`:**
+   - `addEventListener` is a method that attaches an event listener to the element. The `"blur"` event triggers when the element (in this case, the input field) **loses focus**.
+   - The **focus** is lost when the user clicks away from the input field, switches to another element, or uses the keyboard to navigate away (e.g., pressing `Tab`).
+
+3. **`document.querySelector(".overlay").style.display = "none";`:**
+   - This line selects the element with the class `.overlay` and changes its `display` style to `"none"`, effectively **hiding** the overlay element.
+   - Hiding the element removes it from the layout visually without deleting it from the DOM.
+
+### Explanation in Context:
+- When the user clicks into the search input field (e.g., for typing a query), the input gains focus.
+- When the user clicks or tabs away from the search input field (i.e., it **loses focus**), the `blur` event is triggered.
+- At that point, the JavaScript code will run and hide the overlay by setting `display: none` on the `.overlay` element.
+
+### Example Scenario:
+Suppose you have an overlay that shows suggestions or additional information when a user focuses on the search input. Once the user clicks away (blurs the input), you want to hide the overlay.
+
+```html
+<input id="searchinput" type="text" placeholder="Search...">
+<div class="overlay">This is the overlay</div>
+```
+
+Before losing focus, the overlay is visible. But after the `blur` event, the overlay becomes hidden because its `display` is set to `"none"`.
+ -->
+
+<!-- --------------------------------------------------------------------------------------------------------- -->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client-Side Search</title>
+  <style>
+    .searchdata {
+      display: none;
+      background-color: #f0f0f0;
+      margin-top: 10px;
+    }
+    .searchdata div {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <input id="searchinput" type="text" placeholder="Search here..." />
+
+  <div class="searchdata" id="searchResults"></div>
+
+  <script>
+    const data = [
+      { name: 'Petals of roses' },
+      { name: 'Animals of town' },
+      { name: 'The crowd of city' },
+      { name: 'Fruits of planet' },
+      { name: 'Orange peeled' },
+      { name: 'Web design' },
+      { name: 'Apple juice' }
+    ];
+
+    const searchInput = document.querySelector("#searchinput");
+    const searchResults = document.querySelector("#searchResults");
+
+    // Add event listener to search input
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+
+      // Filter the data array
+      const filteredData = data.filter(item =>
+        item.name.toLowerCase().includes(query)
+      );
+
+      // Display filtered results
+      let results = '';
+      if (filteredData.length > 0) {
+        filteredData.forEach(item => {
+          results += `<div>${item.name}</div>`;
+        });
+      } else {
+        results = '<div>No results found</div>';
+      }
+
+      searchResults.innerHTML = results;
+      searchResults.style.display = filteredData.length > 0 ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
+ -->
+
+// function onClick() {
+// var input = document.querySelector("#searchinput");
+// var searchResults = document.querySelector(".searchdata");
+
+// document.querySelector("#btn-onclick").addEventListener("click", () => {
+// // Initially hide search results
+// searchResults.style.display = "none";
+
+// // Show results when input is entered
+// input.addEventListener("input", () => {
+// const query = input.value.toLowerCase();
+
+// // If the input is empty, hide results
+// if (query === "") {
+// searchResults.style.display = "none"; // Hide results when input is empty
+// searchResults.innerHTML = ''; // Clear previous results
+// return;
+// }
+
+// const filteredArray = arr.filter((obj) =>
+// obj.name.toLowerCase().startsWith(query)
+// );
+
+// var clutter = "";
+// filteredArray.forEach(function (obj) {
+// clutter += `<div class="res flex px-8 py-3">
+//             <i class="ri-search-line font-semibold mr-5"></i>
+//             <h3 class="font-semibold">${obj.name}</h3>
+//         </div>`;
+// });
+
+// // If there are results, display them; otherwise, hide
+// searchResults.innerHTML = clutter;
+// searchResults.style.display = clutter ? "block" : "none";
+// });
+// });
+// }

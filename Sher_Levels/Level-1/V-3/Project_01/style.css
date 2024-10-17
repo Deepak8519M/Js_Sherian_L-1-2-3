@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+#main {
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+#nav {
+  height: 100px;
+  width: 100%;
+  /* background: lightcoral; */
+  /* border: 1px solid rebeccapurple; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+#nav-part_1 {
+  display: flex;
+  /* border: 1px solid rebeccapurple; */
+  align-items: center;
+  justify-content: center;
+}
+#nav h3 {
+  font-size: 16px;
+  font-weight: 500;
+  border: 1.5px solid black;
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+#nav i {
+  font-size: 16px;
+  font-weight: 500;
+  border: 1.5px solid black;
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+#nav h1 {
+  font-weight: 500;
+  font-size: 23px;
+  text-transform: uppercase;
+}
+#nav button {
+  padding: 8px 12px;
+  border-radius: 50px;
+  border: 1.5px solid black;
+  font-size: 16px;
+  font-weight: 600;
+  background: white;
+}
+button#btn2 {
+  background-color: orangered;
+  color: white;
+  /* border: 1.5px solid black; */
+  border: none;
+}
+#main > h1 {
+  font-size: 170px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 1px solid red; */
+  width: 100%;
+  text-align: center;
+}
+img {
+  height: 340px;
+  width: 290px;
+  object-fit: cover;
+  /* background-size: cover ; - for backgroung img's */
+  object-position: top;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+#img1 {
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+#img2 {
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+#img3 {
+  transform: translate(-50%, -50%) rotate(-10deg);
+}
+#btm-left {
+  position: absolute;
+  bottom: 5%;
+  left: 3%;
+  font-weight: 500;
+  font-size: 17px;
+}
